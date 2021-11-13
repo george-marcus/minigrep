@@ -2,9 +2,10 @@ use std::env;
 use std::process;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    
+    let args = env::args();
 
-    let config = minigrep::create_config(&args);
+    let config = minigrep::create_config(args);
 
     println!("Searching for {}", config.query);
     println!("In file {}", config.filename);
