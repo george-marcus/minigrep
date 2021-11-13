@@ -1,4 +1,6 @@
 
+pub use self::configuration::Config;
+
 pub mod configuration {
     
     use std::env;
@@ -27,7 +29,7 @@ pub mod configuration {
                 Some(arg) => arg,
                 None => return Err("Didn't get a file name"),
             };
-            
+
             let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
 
             Ok(Config { query, filename, case_sensitive })

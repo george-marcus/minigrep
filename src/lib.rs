@@ -1,11 +1,22 @@
+//! # Minigrep
+//!
+//! `minigrep` is an example project to learn the features of the Rust
+//! programming language.
+
+
 use std::error::Error;
 use std::fs;
 use std::process;
 use std::env;
-use minigrep_configuration::configuration::Config;
+use minigrep_configuration::Config;
 
 mod minigrep_configuration;
 
+
+/// Creates a new instance of Config.
+/// # Errors
+/// Prints exception to error output
+///
 pub fn create_config(args: env::Args) -> Config{
    let config = Config::new(args).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {}", err);
